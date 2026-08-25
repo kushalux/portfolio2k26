@@ -57,11 +57,11 @@ export const DATA = {
     { href: "/case-studies", icon: LayersIcon, label: "Case Studies" },
   ],
 
-  // Drop a PDF at public/kushal-kumar-resume.pdf and flip `enabled` to true —
-  // the dock icon appears automatically. Left off so there's no dead link.
+  // Served straight from /public and opened in a new tab from the dock.
+  // Set `enabled: false` to hide the icon if the PDF is ever removed.
   resume: {
-    enabled: false,
-    href: "/kushal-kumar-resume.pdf",
+    enabled: true,
+    href: "/Kushal_Kumar_Resume.pdf",
     icon: FileTextIcon,
     label: "Résumé",
   },
