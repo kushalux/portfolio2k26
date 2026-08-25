@@ -1,0 +1,75 @@
+---
+title: "One system, three surfaces: building Vayu View's design system"
+publishedAt: "2026-08-05"
+author: "Kushal Kumar"
+summary: "A component library and token foundation that keeps a web dashboard, a mobile app and an embedded hardware GUI reading as one product — maintained by a solo designer."
+---
+
+Vayu View isn't one interface. It's three: a [web dashboard](/case-studies/vayu-view-dashboard), a [mobile app](/case-studies/vayu-view-mobile-app), and a [GUI running on the monitor itself](/case-studies/vayu-view-device-gui). They share data, users and a brand, but almost nothing about their constraints is the same.
+
+Keeping them coherent was not optional. A design system was the only way one designer could ship and maintain three surfaces at once.
+
+| | |
+| --- | --- |
+| **Role** | Product Designer — sole author and maintainer |
+| **Scale** | 10+ components on a defined token foundation |
+| **Consumers** | Web dashboard, mobile app, embedded device GUI |
+| **Timeline** | August 2025 – present |
+
+---
+
+## Why a solo designer needs a system more, not less
+
+Design systems are usually justified by team size — many designers, one language. That argument doesn't apply here; there was only ever me.
+
+The real justification was **throughput**. Three surfaces, one designer, and a product being built zero to one at the same time. Without a system, every new screen is a fresh set of decisions about spacing, severity colour, type size and state handling. With one, those decisions are made once and spent everywhere.
+
+It also mattered for handoff. With a single engineer implementing the web work, ambiguity in a spec costs real days. Components with defined tokens remove most of the questions before they're asked.
+
+## Tokens came first
+
+The foundation is a defined set of colour, type and spacing tokens. Everything above it references those rather than hard-coded values.
+
+The interesting token problem in this product is **severity**. Air quality is not binary — a reading moves through a range from good to hazardous, and that range has to mean the same thing everywhere. The same underlying value has to read consistently whether it's a chip in a dashboard table, a status on a mobile alert, or the dominant colour of a display on a wall.
+
+{/* TODO — document your actual token set. Worth covering:
+      - the severity scale: how many steps, and what maps to each
+      - whether you aligned it to a public standard (AQI bands, WHO guidelines,
+        CPCB categories) or defined your own — and why
+      - your type scale and spacing scale
+      - how the palette survived the device GUI's colour limits, since that's
+        the hardest constraint any of your tokens had to clear
+      - whether you handled dark mode */}
+
+## The components
+
+The library is 10+ components, built for the data this product actually shows: live readings that change continuously, that can be stale, that can be missing entirely, and that carry a severity state.
+
+That last point is what makes these components harder than a typical library. A button has a handful of states. A live sensor reading has *good*, *degrading*, *bad*, *stale*, *offline*, and *never reported* — and every component that renders one has to handle all of them.
+
+{/* TODO — list the actual components and group them, e.g.:
+      - data display: reading card, sensor tile, trend chart, severity chip
+      - navigation: site selector, hierarchy breadcrumb
+      - feedback: alert banner, empty state, offline state
+    Then call out the one or two that were genuinely hard to get right, and
+    explain why. Naming real components is what makes this section credible. */}
+
+## Cross-surface, not cross-platform
+
+The system doesn't try to make the three surfaces look identical — that would be the wrong goal. The device GUI cannot support the dashboard's density, and the dashboard shouldn't be as reductive as the device.
+
+What carries across is the **meaning**: a given severity is the same colour and the same language everywhere, so an administrator who learns to read the wall monitor already knows how to read the dashboard.
+
+{/* TODO — give a concrete example of one component that had to be rethought
+    rather than reused across surfaces, and what changed between them. */}
+
+## Adoption and impact
+
+{/* TODO — the honest version of this section is worth more than a padded one.
+    What you can likely say:
+      - did the engineer build against the components, or reinterpret them?
+      - did the system reduce back-and-forth during handoff?
+      - did visual inconsistencies drop once it was in place?
+      - roughly how much faster did new screens get?
+    If you don't have measurements, say what you observed. "The engineer stopped
+    asking me for spacing values" is a real, specific outcome. */}

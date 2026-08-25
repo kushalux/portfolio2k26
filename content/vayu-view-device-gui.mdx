@@ -1,0 +1,80 @@
+---
+title: "Designing the GUI on the air quality monitor itself"
+publishedAt: "2026-08-15"
+author: "Kushal Kumar"
+summary: "Vayu View's dashboard is for people at a desk. The monitor on the wall is for everyone else — designed to be understood in two seconds, by someone walking past."
+---
+
+Most of Vayu View lives on a screen someone chooses to open. The air quality monitor doesn't. It hangs on a wall in a lobby or an office floor, and it is read by people who never log in, never received training, and are giving it about two seconds of attention as they walk past.
+
+That makes it a completely different design problem from the [dashboard](/case-studies/vayu-view-dashboard) — same data, opposite constraints.
+
+| | |
+| --- | --- |
+| **Role** | Product Designer — sole designer, design through execution |
+| **Team** | CMO as product lead, 2 hardware engineers, 1 engineer |
+| **Timeline** | August 2025 – present |
+| **Surface** | Embedded GUI on the Vayu Guard air quality monitor |
+
+---
+
+## The audience is different
+
+The dashboard has one user: the Building Administration Head, who is accountable for the space and wants detail.
+
+The device has two, and they want opposite things:
+
+- **The occupant** — a tenant, an employee, a hotel guest. Not accountable for anything. Wants one question answered: *is the air in this room okay?* They will not tap anything, and they will not stand still.
+- **The administrator** — the same person who uses the dashboard, but now standing physically in front of the unit. Wants confirmation that the device is alive and reporting sensible values.
+
+Designing for the first without failing the second is the whole job.
+
+## The constraints are real
+
+A dashboard can assume a good screen, a mouse, and an attentive user sitting a foot away. The monitor can assume none of that. It has a fixed physical screen, it's read from across a room rather than at arm's length, and it is often in bad lighting.
+
+Those constraints do most of the design work for you if you let them. They rule out small type, dense layouts, subtle colour differences, and anything that requires interaction to reveal meaning.
+
+{/* TODO — this section needs your real hardware specs to land. Fill in:
+      - screen size and type (LCD? OLED? round or rectangular?)
+      - resolution, and how many colours it can actually render
+      - touch, physical buttons, or no input at all
+      - typical viewing distance and lighting conditions
+      - any refresh rate or rendering limits the hardware imposed
+    Concrete constraints are the most convincing part of a hardware UI case
+    study — they prove you designed against reality, not a Figma canvas. */}
+
+## The two-second problem
+
+An occupant walking past gives the display roughly two seconds. In that time they need to leave with one of two conclusions: *the air is fine* or *the air is not fine*.
+
+That means the primary state cannot be a number. "PM2.5: 38 µg/m³" is meaningless to someone with no reference for what 38 means or whether it's good. The number is only useful to someone who already knows the scale — which is the administrator, not the occupant.
+
+So the display has to carry a verdict first and evidence second: state the conclusion in a form that reads instantly, and let the underlying values support it for anyone who cares to look longer.
+
+{/* TODO — describe what you actually designed here:
+      - what the primary "verdict" element is and how it's encoded
+      - which of the parameters (PM, TVOC, CO₂, humidity, temperature) made it
+        onto the screen and which you cut — and why
+      - whether the display cycles through states or shows everything at once
+      - how you handled the in-between case where one pollutant is bad and the
+        rest are fine
+      - what the device shows when a sensor fails or loses connection */}
+
+## Design through execution
+
+Unlike the dashboard, this surface didn't stop at handoff. I took it from design through to execution, working directly with the two hardware engineers.
+
+{/* TODO — clarify what "execution" meant concretely, since this is unusual for
+    a designer and worth claiming precisely. Did you produce final rendered
+    assets? Specify exact pixel values, palettes or bitmap fonts? Sit with the
+    firmware engineers during implementation? Review it on the physical unit
+    and iterate? Be specific — this is a genuinely differentiating detail and
+    vague wording wastes it. */}
+
+## Why this one matters
+
+Very few product designers have shipped an interface that runs on hardware. The constraints force a kind of discipline that doesn't come up in web work: you cannot add a tooltip, you cannot open a modal, you cannot ask the user to scroll. Everything has to be resolved in the composition itself.
+
+{/* TODO — close with what designing for hardware taught you that you've since
+    carried back into the dashboard and mobile app. */}

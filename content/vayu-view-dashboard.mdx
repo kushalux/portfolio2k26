@@ -1,0 +1,92 @@
+---
+title: "Vayu View — Designing a monitoring dashboard for buildings, not sensors"
+publishedAt: "2026-08-20"
+author: "Kushal Kumar"
+summary: "A zero-to-one B2B dashboard that helps a Building Administration Head answer one question fast: which of my sites has a problem right now?"
+---
+
+Vayu View is an indoor air quality intelligence platform built at [Vayu Guard](https://www.vayuguard.com/). It takes live readings from air quality monitors installed across a client's buildings — particulate matter, TVOC, CO₂, humidity — and turns them into something a building administrator can act on.
+
+I joined as the company's first and only designer and built this surface from nothing.
+
+| | |
+| --- | --- |
+| **Role** | Product Designer — sole designer, end to end |
+| **Team** | CMO as product lead, 1 engineer, 2 hardware engineers |
+| **Timeline** | August 2025 – present |
+| **Scope** | Research, IA, interaction design, visual design, handoff |
+
+---
+
+## Who this is for
+
+The primary user is a **Building Administration Head** — the person responsible for the physical environment of a property. They are not analysts and not scientists. They manage buildings, respond to complaints, and answer to owners and tenants.
+
+Our clients span real estate, IT campuses, hotels, residential complexes and commercial property. What they had in common was how little they could see.
+
+## What they were doing before
+
+Going into design, I spent a day on a commercial site with our CMO, walking the building and talking to the people who manage it. The goal was requirement gathering — understanding how air quality actually gets handled day to day, before anyone drew a screen.
+
+What we found is that clients fell into three groups:
+
+- **Handheld meters.** Someone physically walks to a location, takes a spot reading, and writes it down. One point in space, one moment in time.
+- **Spreadsheets.** Readings get typed into a sheet. By the time anyone looks at the sheet, the air has changed.
+- **Nothing at all.** Air quality is managed reactively — when somebody complains.
+
+All three share the same failure: they tell you what the air *was* like, somewhere, at some point. None of them tell you what's wrong right now, or where.
+
+{/* TODO — from the site visit, add: who you spoke to, their job titles, and the
+    one thing they said that changed your thinking. A direct quote here is the
+    single highest-value addition you can make to this case study. */}
+
+## The hard part: one client is not one building
+
+The design problem that took the longest to solve was **hierarchy**.
+
+A single client is rarely a single space. A client is a portfolio of properties; each property has floors; each floor has zones; each zone has one or more monitors, and each monitor reports several pollutants continuously. Every one of those readings is live and every one of them can go bad independently.
+
+That creates a genuine tension:
+
+- Show everything, and the administrator drowns. Dozens of live values, all changing, none prioritised.
+- Show a summary, and the administrator loses the detail they need to actually fix anything — knowing "this building is unhealthy" doesn't tell you which floor to send someone to.
+
+The dashboard had to collapse a deep tree into a single glance without throwing away the path back down to the specific device that needs attention.
+
+{/* TODO — describe the actual nesting you designed for (client → building →
+    floor → zone → device?), the largest real deployment (how many devices?),
+    and any approach you tried first that failed. Documenting a rejected
+    approach is what separates a case study from a portfolio screenshot. */}
+
+## How I approached it
+
+I designed around a single question the administrator asks every morning: **"is anything wrong, and where?"**
+
+Everything else on the dashboard is subordinate to answering that. Detail is available, but it is never the first thing you meet — you descend into it only after the dashboard has told you where to look.
+
+{/* TODO — this is the section to expand most. For each major decision, cover:
+    what you chose, what you rejected, and why. Consider covering:
+      - how a site's overall state is summarised into one signal
+      - how severity is encoded (colour scale? ranking? both?)
+      - how you handled a device going offline vs. reporting bad air
+      - how historical trend sits alongside the live reading */}
+
+## Outcome
+
+Vayu View shipped and is in production. It now supports **15+ enterprise clients** across real estate, IT, hospitality and commercial property, and underpins **₹25L in platform revenue**.
+
+The clearest signal that the information architecture was working came from support: **the volume of support tickets went down** after launch — clients were finding what they needed without asking us where it was.
+
+{/* TODO — if you can get even rough numbers from the CMO or the engineer, add
+    them here. "Support tickets fell from ~X to ~Y per month" is dramatically
+    more persuasive than "tickets went down." Other numbers worth chasing:
+    time to set up a new site, daily active usage, retention across the 15+
+    clients. */}
+
+## What I'd do differently
+
+{/* TODO — write 2–3 honest sentences. Interviewers ask this in almost every
+    portfolio review, and a candidate who has a real answer stands out. The
+    obvious one for you: no usability testing ran before launch, since the
+    site visit was requirement gathering. What would you test first now that
+    it's live, and what do you suspect you got wrong? */}
